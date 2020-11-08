@@ -9,6 +9,7 @@ import pickle
 encodes = []
 names = []
 
+# copy the full path of the directories of the image files that you are storing
 image_dir='/Users/admin/PycharmProjects/firstProject/Images_Known'
 for root, dirs, files in os.walk(image_dir):
     print(files)
@@ -50,9 +51,9 @@ while True:
         results = face_recognition.compare_faces(encodes,encodeCam)
         faceDist = face_recognition.face_distance(encodes,encodeCam)
         print(faceDist)
-        match_index = np.argmin(faceDist)
-        if results[match_index]:
-            name = names[match_index]
+        best_match_index = np.argmin(faceDist)
+        if results[best_match_index]:
+            name = names[best_match_index]
         cv2.rectangle(img, (left,top),(right,bottom), (255,0,0), 2)
         cv2.rectangle(img, (left,top),(right, top-30), (255,0,0), -1)
         cv2.putText(img, name, (left, top-10), font, .75, (0,255,255), 2)
