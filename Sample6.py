@@ -1,3 +1,4 @@
+# Track a color by masking out unwanted colors and draw bounding boxes around each of them
 import cv2
 import numpy as np
 
@@ -32,7 +33,8 @@ while True:
 
     FGmask = cv2.inRange(hsv, (hueLow,satLow,valLow),(hueHigh,satHigh,valHigh))
     cv2.imshow('FGmask',FGmask)
-
+    
+    # Use findContours to get contours around each object
     contours, hierarchy = cv2.findContours(FGmask,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
     contours = sorted(contours,key=lambda x:cv2.contourArea(x),reverse=True)
     for cnt in contours:
@@ -44,8 +46,8 @@ while True:
 
     cv2.imshow('Frame', img)
     # cv2.moveWindow('Frame', 100,20)
-    if cv2.waitKey(1) == ord('q'):
+    if cv2.waitKey(1) & 0xff == ord('q'):
         break
 
-# cam.release()
+cam.release()
 cv2.destroyAllWindows()
