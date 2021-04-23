@@ -1,4 +1,4 @@
-# Face detection in photos by Haar Cascade
+# Face detection in static photos by Haar Cascade
 import cv2
 import numpy as np
 print(cv2.__version__)
