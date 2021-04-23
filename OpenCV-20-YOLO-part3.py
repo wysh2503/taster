@@ -1,5 +1,4 @@
-# Save this file to Github as OpenCV-20-YOLO-part3.py
-
+# Object detection using YOLOv3
 import cv2
 import numpy as np
 
@@ -38,12 +37,6 @@ while True:
     print(output_layers_names)
 
     LayerOutputs = net.forward(output_layers_names)
-    print(len(LayerOutputs))
-    # print(LayerOutputs[0].shape)
-    # print(LayerOutputs[1].shape)
-    # print(LayerOutputs[2].shape)
-    # print(LayerOutputs[0][0])
-
 
     bboxes = [] # array for all bounding boxes of detected classes
     confidences = [] # array for all confidence values of matching detected classes
@@ -65,12 +58,8 @@ while True:
                 bboxes.append([x,y,w,h])
                 confidences.append((float(confidence)))
                 class_ids.append(class_id)
-                # cv2.rectangle(img, (x, y), (x + w, y + h), (255,0,0), 2)
 
-    # print(len(bboxes))
     indexes = cv2.dnn.NMSBoxes(bboxes, confidences, confThreshold, 0.4) #Non-maximum suppresion
-    # print(indexes)
-    # print(indexes.flatten())
 
     font = cv2.FONT_HERSHEY_PLAIN
     colors = np.random.uniform(0,255,size=(len(bboxes),3))
@@ -86,8 +75,7 @@ while True:
 
 
     cv2.imshow('Image', img)
-    key = cv2.waitKey(1)
-    if key == 27:
+    if cv2.waitKey(1) & 0xff == ord('q'):
         break
 
 cap.release()
