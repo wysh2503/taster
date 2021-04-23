@@ -7,6 +7,6 @@ Codes in this folder can demonstrate how to detect faces by Haar Cascade method,
 
 Sample1: Read a static image and stream frames from webcam
 Sample2: Stream frames from webcam
-Sample3:
-Sample4:
-Sample5:
+Sample3: Face detection in static photos by Haar Cascade
+Sample4: Real time Face detection from webcam by Haar Cascade
+Sample5: 
