@@ -1,4 +1,4 @@
-# Read a static image and test on different image processing
+# Read a static image and test with different image processing methods
 import cv2
 import numpy as np
 print(cv2.__version__)
