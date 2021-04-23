@@ -13,4 +13,11 @@ Sample3: Face detection in static photos by Haar Cascade
 
 Sample4: Real time Face detection from webcam by Haar Cascade
 
-Sample5: 
+Sample5: Masking colors in HSV space using a static image
+
+Sample6: Track a color in real time by masking out unwanted colors and draw bounding boxes around each of them
+
+Sample7:
+
+Sample8:
+
