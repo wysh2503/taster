@@ -1,3 +1,4 @@
+# Real time face detection using Haar Cascade method
 import cv2
 import numpy as np
 print(cv2.__version__)
@@ -10,8 +11,8 @@ capture.set(4,480)
 
 while True:
     success, img = capture.read()
-    #imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    faces = faceCascade.detectMultiScale(img, 1.1, 4)
+    imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    faces = faceCascade.detectMultiScale(imgGray, 1.1, 4)
     for (x, y, w, h) in faces:
         cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
 
