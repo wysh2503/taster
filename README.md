@@ -17,7 +17,5 @@ Sample5: Masking colors in HSV space using a static image
 
 Sample6: Track a color in real time by masking out unwanted colors and draw bounding boxes around each of them
 
-Sample7:
-
-Sample8:
+Sample7: Object detection using YOLOv3
 
