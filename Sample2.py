@@ -1,3 +1,4 @@
+# Below code stream frames from webcam and display it on 'Frame'
 import cv2
 import numpy as np
 print(cv2.__version__)
@@ -11,7 +12,7 @@ capture.set(4,480)
 while True:
     success, img = capture.read()
     cv2.imshow('Frame', img)
-    cv2.moveWindow('Frame', 100,20)
+#     cv2.moveWindow('Frame', 100,20)
     if cv2.waitKey(20) & 0xff == ord('q'):
         break
 
