@@ -4,7 +4,7 @@ import numpy as np
 
 confThreshold = 0.4
 
-cap = cv2.VideoCapture(1)
+cam = cv2.VideoCapture(1)
 
 # Create an empty list - classes[] and point the classesFile to 'coco80.names'
 classesFile = 'coco80.names'
@@ -24,7 +24,7 @@ net.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
 
 
 while True:
-    success , img = cap.read()
+    success , img = cam.read()
     height, width, ch = img.shape
 
     blob = cv2.dnn.blobFromImage(img, 1 / 255, (320, 320), (0, 0, 0), swapRB=True, crop=False)
@@ -75,8 +75,8 @@ while True:
 
 
     cv2.imshow('Image', img)
-    if cv2.waitKey(1) & 0xff == ord('q'):
+    if cv2.waitKey(1) & 0xff == 27:
         break
 
-cap.release()
+cam.release()
 cv2.destroyAllWindows()
