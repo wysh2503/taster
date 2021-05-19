@@ -1,13 +1,10 @@
 # Real time face detection using Haar Cascade method
 import cv2
-import numpy as np
 print(cv2.__version__)
 
 faceCascade = cv2.CascadeClassifier('Resources/haarcascade_frontalface_default.xml')
 
 cam = cv2.VideoCapture(1)
-# cam.set(3,640)
-# cam.set(4,480)
 
 while True:
     success, img = cam.read()
