@@ -16,7 +16,6 @@ cv2.createTrackbar('ValHigh','Trackbars',255,255,nothing)
 
 # Given a color photo, adjust the HSV values to mask out unwanted colors
 while True:
-    # success, img = cam.read()
     img = cv2.imread('Resources/smarties.png')
     cv2.imshow('Frame', img)
     # Change color space to HSV
@@ -44,7 +43,7 @@ while True:
     finalImg = cv2.add(FG,BG)
     cv2.imshow('FinalImage', finalImg)
 
-    if cv2.waitKey(1) & 0xff == ord('q'):
+    if cv2.waitKey(1) & 0xff == 27:
         break
 
 cv2.destroyAllWindows()
