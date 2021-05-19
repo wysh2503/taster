@@ -16,12 +16,11 @@ cv2.createTrackbar('ValHigh','Trackbars',255,255,nothing)
 
 # Set up webcam
 cam = cv2.VideoCapture(1)
-cam.set(3,640)
-cam.set(4,480)
 
 # Start capturing and show frames on window
 while True:
     success, img = cam.read()
+    img = cv2.resize(img, (int(img.shape[0]/0.5),int(img.shape[1]/0.5))
 
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     hueLow = cv2.getTrackbarPos('HueLow','Trackbars')
@@ -45,8 +44,7 @@ while True:
             cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),3)
 
     cv2.imshow('Frame', img)
-    # cv2.moveWindow('Frame', 100,20)
-    if cv2.waitKey(1) & 0xff == ord('q'):
+    if cv2.waitKey(1) & 0xff == 27:
         break
 
 cam.release()
