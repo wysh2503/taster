@@ -20,7 +20,7 @@ cam = cv2.VideoCapture(1)
 # Start capturing and show frames on window
 while True:
     success, img = cam.read()
-    img = cv2.resize(img, (int(img.shape[0]/0.5),int(img.shape[1]/0.5))
+    img = cv2.resize(img, (int(img.shape[1]/0.5),int(img.shape[0]/0.5))
 
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     hueLow = cv2.getTrackbarPos('HueLow','Trackbars')
